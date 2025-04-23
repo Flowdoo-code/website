@@ -1,104 +1,44 @@
+# Free Adam
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FunZone</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f8ff;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      background: #0066cc;
-      color: white;
-      padding: 20px;
-    }
-    nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    iframe {
-      border: none;
-      width: 80%;
-      height: 500px;
-      margin: 20px 0;
-    }
-    .pixel-board {
-      display: grid;
-      grid-template-columns: repeat(16, 20px);
-      gap: 2px;
-      justify-content: center;
-    }
-    .pixel {
-      width: 20px;
-      height: 20px;
-      background: #ffffff;
-      border: 1px solid #ccc;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Adam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .vote-free {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .vote-locked {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>🎉 Welcome to FunZone 🎉</h1>
-    <nav>
-      <a href="#games">Games</a>
-      <a href="#extras">Fun Extras</a>
-    </nav>
-  </header>
-
-  <section id="games">
-    <h2>🕹️ Play Some Games!</h2>
-    <p>Check out these fun little games embedded right here!</p>
-
-    <!-- Embed a classic game (can replace URLs with others) -->
-    <h3>2048</h3>
-    <iframe src="https://play2048.co/" title="2048 Game"></iframe>
-
-    <h3>Flappy Bird Clone</h3>
-    <iframe src="https://flappybird.io/" title="Flappy Bird Game"></iframe>
-  </section>
-
-  <section id="extras">
-    <h2>🎨 Fun Extras</h2>
-
-    <h3>Tell Me a Joke!</h3>
-    <p id="joke">Click the button below for a random joke!</p>
-    <button onclick="getJoke()">Get Joke</button>
-
-    <h3>Pixel Drawing Board</h3>
-    <div class="pixel-board" id="pixelBoard"></div>
-  </section>
-
-  <script>
-    async function getJoke() {
-      const res = await fetch('https://icanhazdadjoke.com/', {
-        headers: { 'Accept': 'application/json' }
-      });
-      const data = await res.json();
-      document.getElementById('joke').textContent = data.joke;
-    }
-
-    // Pixel Board Generator
-    const board = document.getElementById('pixelBoard');
-    for (let i = 0; i < 16 * 16; i++) {
-      const pixel = document.createElement('div');
-      pixel.classList.add('pixel');
-      pixel.addEventListener('click', () => {
-        pixel.style.background = pixel.style.background === 'black' ? '#fff' : 'black';
-      });
-      board.appendChild(pixel);
-    }
-  </script>
+    <h1>Free Adam</h1>
+    <p>Do you want to free Adam or keep him locked up?</p>
+    <button class="vote-free" onclick="alert('Thank you for voting to free Adam!')">Vote to Free Him</button>
+    <button class="vote-locked" onclick="alert('Thank you for voting to keep Adam locked up.')">Vote to Keep Him Locked Up</button>
 </body>
 </html>
